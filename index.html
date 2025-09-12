@@ -1,47 +1,166 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clean Water Changes Everything</title>
+  <meta name="description" content="A simple, beginner‑friendly charity: water–style landing page with accessible HTML and pure CSS." />
+  <!-- Favicon: inline SVG droplet to avoid broken links -->
+  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><rect width="48" height="48" rx="10" fill="%23111"/><path d="M24 7c6 8 9 12 9 17a9 9 0 0 1-18 0c0-5 3-9 9-17z" fill="%23ffd200"/></svg>' />
+  <style>
+    :root{
+      --yellow:#ffd200; /* brand pop */
+      --ink:#111;       /* near black */
+      --ink-2:#333;     /* secondary text */
+      --paper:#fff;
+      --bg:#0b0b0b;
+      --radius:18px;
+      --maxw:1120px;
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.6;color:var(--ink);background:var(--paper)}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(92vw,var(--maxw));margin-inline:auto}
+
+    /* Buttons */
+    .btn{display:inline-block;padding:14px 22px;border-radius:999px;font-weight:700;background:var(--yellow);color:var(--ink);box-shadow:0 6px 0 rgba(0,0,0,.22);transition:transform .15s,box-shadow .15s}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 10px 0 rgba(0,0,0,.18)}
+    .btn.outline{background:#fff;border:2px solid #fff}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #eee}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:.75rem;font-weight:800}
+    .brand svg{width:28px;height:28px;border-radius:8px}
+
+    /* Hero */
+    .hero{background:radial-gradient(1200px 500px at 50% 0%, #1a1a1a 0%, #0b0b0b 60%, #000 100%), var(--bg);color:#f7f7f7;border-bottom:8px solid var(--yellow)}
+    .hero-grid{display:grid;gap:28px;align-items:center;padding:72px 0 48px}
+    .hero h1{margin:0 0 12px;font-size:clamp(2rem,4vw,3rem);line-height:1.1}
+    .lede{margin:0 0 24px;font-size:clamp(1rem,2.2vw,1.25rem);color:#e6e6e6}
+    .hero-figure{border-radius:var(--radius);overflow:hidden}
+
+    /* Sections */
+    section{padding:56px 0}
+    .section-title{font-size:clamp(1.6rem,3vw,2.25rem);margin:0 0 16px}
+    .muted{color:var(--ink-2)}
+
+    /* Impact cards */
+    .cards{display:grid;gap:16px}
+    .card{border:1px solid #ece7b5;border-radius:var(--radius);padding:18px;background:#fff}
+    .stat{font-size:1.6rem;font-weight:800}
+
+    /* Gallery */
+    .gallery{display:grid;gap:12px}
+    .tile{border-radius:14px;overflow:hidden;border:1px solid #eee}
+
+    /* Footer */
+    footer{border-top:1px solid #eee;background:#fafafa;color:#5a5a5a}
+    .footer-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:26px 0 48px}
+
+    /* Responsive grids */
+    @media (min-width:768px){
+      .hero-grid{grid-template-columns:1.15fr 1fr}
+      .cards{grid-template-columns:repeat(3,1fr)}
+      .story-grid{grid-template-columns:1.1fr 1fr}
+      .gallery{grid-template-columns:2fr 1fr 1fr}
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+  <!-- Header -->
+  <header>
+    <div class="wrap nav" role="navigation" aria-label="Primary">
+      <a class="brand" href="#top">
+        <!-- Inline droplet logo to avoid image hosting issues -->
+        <svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="8" fill="#111"/><path d="M24 7c6 8 9 12 9 17a9 9 0 0 1-18 0c0-5 3-9 9-17z" fill="#ffd200"/></svg>
+        <span>charity: water</span>
+      </a>
+      <a class="btn" href="#donate">Donate</a>
+    </div>
+  </header>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
-
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Clean water changes everything</h1>
+        <p class="lede">771 million people live without access to clean and safe drinking water. Together, we can bring sustainable water solutions to communities around the world.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+          <a class="btn" href="#donate">Give once</a>
+          <a class="btn outline" href="#donate">Join monthly</a>
         </div>
-    </section>
+      </div>
+      <figure class="hero-figure">
+        <!-- Photos chosen to be reliable: picsum.photos with seeded URLs (stable, no broken links) -->
+        <img src="https://picsum.photos/seed/water-hero/1200/800" alt="Smiling child carrying a yellow jerry can near a village water point" loading="lazy" width="1200" height="800" />
+      </figure>
+    </div>
+  </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+  <!-- Impact -->
+  <section aria-labelledby="impact-title">
+    <div class="wrap">
+      <h2 class="section-title" id="impact-title">Your impact, at a glance</h2>
+      <p class="muted">Every donation helps fund clean water projects and the training required to keep them running for years.</p>
+
+      <div class="cards" style="margin-top:16px">
+        <article class="card" aria-label="771 million lack access"><div class="stat">771m</div><div>people lack access to clean water</div></article>
+        <article class="card" aria-label="1 in 10 affected"><div class="stat">1 in 10</div><div>people worldwide are affected</div></article>
+        <article class="card" aria-label="200 million hours"><div class="stat">200m hours</div><div>spent daily collecting water</div></article>
+      </div>
+
+      <!-- Optional image row to support the stats -->
+      <div class="gallery" style="margin-top:18px">
+        <div class="tile"><img src="https://picsum.photos/seed/water-community/900/600" alt="Community celebrating at a new water point" loading="lazy" width="900" height="600"/></div>
+        <div class="tile"><img src="https://picsum.photos/seed/water-hands/600/600" alt="Hands catching clean water" loading="lazy" width="600" height="600"/></div>
+        <div class="tile"><img src="https://picsum.photos/seed/water-drop/600/600" alt="Water droplet on a leaf" loading="lazy" width="600" height="600"/></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section class="story" aria-labelledby="story-title">
+    <div class="wrap story-grid">
+      <div>
+        <small class="muted" style="text-transform:uppercase;letter-spacing:.08em;font-weight:700">Real people, real change</small>
+        <h2 class="section-title" id="story-title">From hours of walking to moments of possibility</h2>
+        <p class="muted">Access to clean water means time for school, time to earn an income, and time to dream. When a community gets clean water, women and girls reclaim hours each day, families stay healthier, and local economies grow.</p>
+        <p class="muted">We partner with local experts to build and maintain community‑owned water projects—and we prove every project with GPS coordinates and photos.</p>
+        <a class="btn" href="#donate">See how you can help</a>
+      </div>
+      <figure class="tile">
+        <img src="https://picsum.photos/seed/water-journey/1200/800" alt="Girl walking with a jerry can along a path" loading="lazy" width="1200" height="800"/>
+      </figure>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="donate" style="background:#111;color:#fff;text-align:center;padding:64px 0 88px;border-top:8px solid var(--yellow)">
+    <div class="wrap">
+      <h2 class="section-title" style="color:#fff">Be the reason a community gets clean water</h2>
+      <p style="color:#dddee0">$40 can give one person access to clean water. 100% of public donations fund water projects.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a class="btn" href="#">Donate now</a>
+        <a class="btn" href="#">Start a fundraiser</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap footer-row">
+      <div style="display:flex;gap:10px;align-items:center">
+        <svg viewBox="0 0 48 48" width="22" height="22" aria-hidden="true"><rect width="48" height="48" rx="10" fill="#111"/><path d="M24 7c6 8 9 12 9 17a9 9 0 0 1-18 0c0-5 3-9 9-17z" fill="#ffd200"/></svg>
+        <span>&copy; 2025 charity: water (student project)</span>
+      </div>
+      <nav style="display:flex;gap:14px">
+        <a href="#top">Back to top</a>
+        <a href="#donate">Take action</a>
+      </nav>
+    </div>
+  </footer>
 </body>
 </html>
